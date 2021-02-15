@@ -70,20 +70,22 @@
                     <div class="col col-12 mb-3">
                         <h2>{{ $project->title }}</h2>
                     </div>
-                    <div class="col col-12 mb-3">
-                        <video class="card w-100" id="player" playsinline controls
-                               data-poster="{{ $header->siteVideoPosterId ? $header->siteVideoPoster->path : "http://www.placehold.it/900x300" }}">
-                            <source
-                                src="{{ $header->siteVideoId ? $header->siteVideo->path : "http://www.placehold.it/900x300" }}"
-                                type="video/mp4"/>
-                        {{--                    <source src="/path/to/video.webm" type="video/webm"/>--}}
+                    @if($project->siteVideoId)
+                        <div class="col col-12 mb-3">
+                            <video class="card w-100" id="player" playsinline controls
+                                   data-poster="{{ $project->siteVideoPosterId ? $project->siteVideoPoster->path : "http://www.placehold.it/900x300" }}">
+                                <source
+                                    src="{{ $project->siteVideoId ? $project->siteVideo->path : "http://www.placehold.it/900x300" }}"
+                                    type="video/mp4"/>
+                            {{--                    <source src="/path/to/video.webm" type="video/webm"/>--}}
 
-                        <!-- Captions are optional -->
-                            <track kind="captions" label="English captions" src="/path/to/captions.vtt"
-                                   srclang="en"
-                                   default/>
-                        </video>
-                    </div>
+                            <!-- Captions are optional -->
+                                <track kind="captions" label="English captions" src="/path/to/captions.vtt"
+                                       srclang="en"
+                                       default/>
+                            </video>
+                        </div>
+                    @endif
                     <div class="col col-12">
                         <p>{!! $project->description !!}</p>
                     </div>
@@ -93,5 +95,4 @@
         </div>
     </div>
     <!-- End Project Details -->
-
 @endsection
