@@ -70,12 +70,12 @@
                     <div class="col col-12 mb-3">
                         <h2>{{ $project->title }}</h2>
                     </div>
-                    @if($project->siteVideoId)
+                    @if($project->projectVideoId)
                         <div class="col col-12 mb-3">
                             <video class="card w-100" id="player" playsinline controls
-                                   data-poster="{{ $project->siteVideoPosterId ? $project->siteVideoPoster->path : "http://www.placehold.it/900x300" }}">
+                                   data-poster="{{ $project->projectVideoPosterId ? $project->projectVideoPoster->path : "http://www.placehold.it/900x300" }}">
                                 <source
-                                    src="{{ $project->siteVideoId ? $project->siteVideo->path : "http://www.placehold.it/900x300" }}"
+                                    src="{{ $project->projectVideoId ? $project->projectVideo->path : "http://www.placehold.it/900x300" }}"
                                     type="video/mp4"/>
                             {{--                    <source src="/path/to/video.webm" type="video/webm"/>--}}
 
